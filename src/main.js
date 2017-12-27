@@ -6,8 +6,15 @@ import router from './router'
 
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-axios.defaults.baseURL = 'http://localhost:3000'
+
+import ElementUI from 'element-ui' // 完整引入
+// import { Button, Select } from 'element-ui' // 按需引入
+import 'element-ui/lib/theme-chalk/index.css'
+
+axios.defaults.baseURL = 'http://localhost:3001'
 Vue.use(VueAxios, axios)
+
+Vue.use(ElementUI, { size: 'small' })
 
 Vue.config.productionTip = false
 

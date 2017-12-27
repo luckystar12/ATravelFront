@@ -9,10 +9,11 @@
     </ol>
     <ol>
       <li v-for="user in userlist">
-        名字：{{user.name}} <br/>
+        名字：{{user.username}} <br/>
         创建时间： {{user.createTime}}
       </li>
     </ol>
+    <el-button @click="getUser">获取用户信息</el-button>
   </div>
 </template>
 
@@ -42,13 +43,16 @@ export default {
   },
   mounted: function () {
     // GET /someUrl
-    this.$http.get('/user/test/lym').then(response => {
-      console.log(response.data)
-      // get body data
-      this.userlist = response.data
-    }, response => {
-      console.log('error')
-    })
+  },
+  methods: {
+    getUser () {
+      this.$http.get('/user/test/lym').then(response => {
+        console.log(response.data)
+        this.userlist = response.data
+      }, response => {
+        console.log('error')
+      })
+    }
   }
 }
 </script>
